@@ -1,0 +1,17 @@
+FLAGS = {
+    1: "password",
+    2: "AUTHORIZED",
+    3: "SECRET",
+    4: "SECURITY",
+    5: "password",
+    6: "network",
+    7: "ADMIN",
+    8: "fake-login.ru",
+    9: "password",
+    10: "secret-network-authorized",
+    11: "crawler_found_this",
+    12: "js_decoded",
+    13: "cookie",
+    14: "api_leak",
+    15: "root_access_granted",
+}
