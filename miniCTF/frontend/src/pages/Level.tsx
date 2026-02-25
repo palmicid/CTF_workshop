@@ -3,6 +3,7 @@ import { useNavigate, useParams, useSearchParams, Link } from "react-router-dom"
 import ReactMarkdown from "react-markdown";
 import { apiGet, apiPost } from "../api/api";
 import type { LevelResp, SubmitResp } from "../types";
+import rehypeRaw from "rehype-raw";
 
 function useTeamFromQuery(): string {
     const [sp] = useSearchParams();
@@ -106,7 +107,7 @@ export default function Level() {
 
             <div style={{ padding: 16, border: "1px solid #ddd", borderRadius: 8 }}>
                 {data?.instructions_md ? (
-                    <ReactMarkdown>{data.instructions_md}</ReactMarkdown>
+                    <ReactMarkdown rehypePlugins={[rehypeRaw]}>{data.instructions_md}</ReactMarkdown>
                 ) : (
                     <p>Loading instructions…</p>
                 )}

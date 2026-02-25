@@ -1,16 +1,16 @@
-# Level 06 — Hidden Metadata
+# Level 06 — Hidden in Source
 
-An image file has been provided.
+A webpage was deployed in a hurry.
 
-The flag is NOT visible in the image itself.
+Developers sometimes forget to remove sensitive information.
 
-Instead, inspect the file's metadata.
+Inspect the HTML source carefully.
 
-You may use:
-- exiftool
-- file properties
-- or any metadata viewer
+---
 
-Find the hidden value stored in metadata.
+## Page Content
 
-Submit the value only.
+Visit this local URL in your browser:
+
+[http://10.12.8.3:9011/level/6](http://10.12.8.3:9011/level/6)
+

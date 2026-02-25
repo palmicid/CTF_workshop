@@ -3,20 +3,23 @@
 
 ## ✅ Level 09 `levels/level09/description.md`
 
-```md
+
 # Level 09 — Multi-Step Decode
 
-Follow the instructions carefully.
-
-Step 1: Reverse the text  
-Step 2: Base64 decode the result
-
+because just one step encode is easy to solve 
+so here we are 3 STEP ENCODE
 ---
 
 ## Encoded string
 ```
-==AZy92dzV2U
+b2piaWRzZmlxamQ=
 ```
+---
+
+### Need hints?
+- Go to here
+
+[http://10.12.8.3:9011/level/9](http://10.12.8.3:9011/level/9)
 
 ---
 

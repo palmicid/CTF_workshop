@@ -7,7 +7,7 @@ FLAGS = {
     6: "network",
     7: "ADMIN",
     8: "fake-login.ru",
-    9: "password",
+    9: "cipherchain",
     10: "secret-network-authorized",
     11: "crawler_found_this",
     12: "js_decoded",

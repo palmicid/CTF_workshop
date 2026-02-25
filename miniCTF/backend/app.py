@@ -218,5 +218,31 @@ def serve_react(path):
     # Otherwise serve index.html (SPA fallback)
     return send_from_directory(FRONTEND_DIST, "index.html")
 
+@app.get("/api/hint/<int:level_id>/<int:hint_no>")
+def api_hint(level_id: int, hint_no: int):
+    team = clean_team(request.args.get("team"))
+    if not team:
+        return jsonify({"ok": False, "msg": "team is required"}), 400
+
+    team_id = db.get_team_id(team)
+    if not team_id:
+        return jsonify({"ok": False, "msg": "team not found"}), 404
+
+    if level_id < 1 or level_id > TOTAL_LEVELS:
+        return jsonify({"ok": False, "msg": "invalid level"}), 404
+
+    # enforce level access (no skipping)
+    solved = db.get_solved_levels(team_id)
+    unlocked = (max(solved) + 1) if solved else 1
+    if level_id > unlocked and level_id not in solved:
+        return jsonify({"ok": False, "msg": "level locked"}), 403
+
+    meta = LEVELS.get(level_id, {})
+    hints = meta.get("hints", [])
+    if hint_no < 1 or hint_no > len(hints):
+        return jsonify({"ok": False, "msg": "hint not found"}), 404
+
+    return jsonify({"ok": True, "hint": hints[hint_no - 1], "hint_no": hint_no, "total": len(hints)})
+
 if __name__ == "__main__":
     app.run(host=HOST, port=PORT, debug=False)
